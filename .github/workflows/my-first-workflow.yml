@@ -1,7 +1,9 @@
 name: My First GitHub Actions Workflow
 
-on: 
+on:
   push:
+    paths-ignore:
+      - ".github/**"
 
 jobs:
   say-hi:
