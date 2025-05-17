@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Say Hi
-        run: echo "Hi"
+        run: echo "Hello world"
 
   say-bye:
     runs-on: ubuntu-latest
     steps:
       - name: Say Bye
-        run: echo "Bye"
+        run: echo "Bye world"
 
