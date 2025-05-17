@@ -24,12 +24,12 @@ jobs:
       - name: Show input values
         run: |
           echo "run-tests = ${{ github.event.inputs.run-tests }}"
-          echo "environment = ${{ github.event.inputs.environment }}"
+          echo "environment = ${{ fromJson(github.event.inputs.environment).env }}"
 
       - name: Conditionally Run Tests
         if: github.event.inputs.run-tests == 'true'
-        run: echo "✅ Running tests in ${{ github.event.inputs.environment }} environment..."
+        run: echo "Running tests in ${{ github.event.inputs.environment }} environment..."
 
       - name: Skip Tests
         if: github.event.inputs.run-tests != 'true'
-        run: echo "❌ Skipping tests for ${{ github.event.inputs.environment }} environment."
+        run: echo "Skipping tests for ${{ github.event.inputs.environment }} environment."
