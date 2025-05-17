@@ -1,0 +1,35 @@
+name: Inputs and Expressions Lab
+
+on:
+  workflow_dispatch:
+    inputs:
+      run-tests:
+        description: "Run tests?"
+        required: true
+        default: "true"
+        type: boolean
+
+      environment:
+        description: "Choose environment"
+        required: true
+        default: '{"env":"dev"}'
+        type: choice
+     
+
+jobs:
+  run-based-on-inputs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show input values
+        run: |
+          echo "run-tests = ${{ github.event.inputs.run-tests }}"
+          echo "environment = ${{ github.event.inputs.environment }}"
+
+      - name: Conditionally Run Tests
+        if: github.event.inputs.run-tests == 'true'
+        run: echo "✅ Running tests in ${{ github.event.inputs.environment }} environment..."
+
+      - name: Skip Tests
+        if: github.event.inputs.run-tests != 'true'
+        run: echo "❌ Skipping tests for ${{ github.event.inputs.environment }} environment."
