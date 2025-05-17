@@ -2,6 +2,8 @@ name: Trigger Lab Workflow
 
 on:
   push:
+    paths-ignore:
+      - ".github/**"
   workflow_dispatch:
 #  schedule:
 #    - cron: '*/2 * * * *'
