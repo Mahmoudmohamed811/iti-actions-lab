@@ -36,7 +36,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: python-env
-          path: .venv
+          path: './.venv/**'
+
 
   use-python-deps:
     needs: setup-python-deps
@@ -50,7 +51,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: python-env
-          path: .venv
+          path: './.venv/**'
+
 
       - name: Use dependencies
         run: |
