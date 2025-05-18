@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: python-env
-          path: '.venv'
+          path: '/home/runner/work/iti-actions-lab/iti-actions-lab/.venv'  
 
 
   use-python-deps:
@@ -53,7 +53,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: python-env
-          path: '.venv'
+          path: '/home/runner/work/iti-actions-lab/iti-actions-lab/.venv'  
 
 
       - name: Use dependencies
